@@ -1,22 +1,9 @@
-[tool.poetry]
-name = "SmartThings-basic-rest"
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setupools.build_meta"
+
+[project]
+name = "smartthings-basic-rest"
 version = "0.1.0"
 description = "SmartThings Plug API"
-authors = ["Akandesh"]
 license = "MIT"
-repository = "https://github.com/Akandesh/SmartThings-basic-rest"
-readme = "README.md"
-
-
-[tool.poetry.dependencies]
-python = "^3.6.2"
-requests = "^2.26.0"
-json = "^2.0.9"
-python-dotenv = "^0.19.2"
-
-[tool.poetry.dev-dependencies]
-toml = "^0.10.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
