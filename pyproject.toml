@@ -6,4 +6,4 @@ build-backend = "setuptools.build_meta"
 name = "smartthings-basic-rest"
 version = "0.1.0"
 description = "SmartThings Plug API"
-license = "MIT"
+license = { text = "MIT" }
