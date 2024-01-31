@@ -93,7 +93,7 @@ class SmartThings:
                 if device[match] == kwargs[match]:
                     return Device(device, self)
                     # return device
-                    
+        return None
                     
 class Device:
     def __init__(self, data, smartThings) -> None:
@@ -115,8 +115,11 @@ class Device:
                 }
             ]
         }
-        res = self.smartThings._post(f"devices/{self.deviceId}/commands", json.dumps(commandData))
-        return res["results"][0]["status"] == "ACCEPTED"
+        try:
+            res = self.smartThings._post(f"devices/{self.deviceId}/commands", json.dumps(commandData))
+            return res["results"][0]["status"] == "ACCEPTED"
+        except:
+            return False
     
     def switch_off(self):
         commandData = {
@@ -127,5 +130,8 @@ class Device:
                 }
             ]
         }
-        res = self.smartThings._post(f"devices/{self.deviceId}/commands", json.dumps(commandData))
-        return res["results"][0]["status"] == "ACCEPTED"
+        try:
+            res = self.smartThings._post(f"devices/{self.deviceId}/commands", json.dumps(commandData))
+            return res["results"][0]["status"] == "ACCEPTED"
+        except:
+            return False
